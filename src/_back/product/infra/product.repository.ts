@@ -1,4 +1,4 @@
-import { injectable, singleton } from "tsyringe";
+import { singleton } from "tsyringe";
 import { ProductModel } from "./product.schema";
 import { IProductRepository } from "../domain/product.repository.interface";
 import { Product } from "../domain/product.entity";
@@ -9,7 +9,7 @@ export class ProductRepository implements IProductRepository {
   async create(product: Product): Promise<string> {
     const persistenceProduct = ProductMapper.toPersistence(product);
     const createdProduct = await ProductModel.create(persistenceProduct);
-    console.log(createdProduct);
+
     return ProductMapper.toDomain(createdProduct).id as string;
   }
 

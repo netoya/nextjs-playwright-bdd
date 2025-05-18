@@ -1,4 +1,4 @@
-import { autoInjectable, inject, injectable } from "tsyringe";
+import { autoInjectable, inject } from "tsyringe";
 import { ProductService } from "../../domain/product.service";
 import { Product } from "../../domain/product.entity";
 

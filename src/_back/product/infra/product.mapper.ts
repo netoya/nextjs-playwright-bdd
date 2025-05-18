@@ -4,7 +4,7 @@ import { ProductDocument } from "./product.document";
 export class ProductMapper {
   static toDomain(raw: ProductDocument): Product {
     const data = raw.toJSON();
-    console.log({ data, raw });
+
     return new Product(data._id?.toString(), data.name, data.price, data.stock);
   }
 

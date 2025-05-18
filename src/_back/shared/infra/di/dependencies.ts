@@ -13,3 +13,5 @@ container.registerSingleton<IProductRepository>(
   ProductRepository
 );
 container.registerSingleton<ProductService>("ProductService", ProductService);
+
+export { container };

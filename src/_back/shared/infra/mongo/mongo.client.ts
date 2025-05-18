@@ -12,10 +12,7 @@ export class MongoDBClient {
 
   async connect() {
     if (this.connection.connection.readyState === 0) {
-      const status = await this.connection.connect(
-        process.env.mongouri as string
-      );
-      console.log({ status });
+      await this.connection.connect(process.env.mongouri as string);
     }
   }
 
