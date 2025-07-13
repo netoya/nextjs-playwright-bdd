@@ -1,4 +1,4 @@
-import { Product } from "@/_back/product/domain/product.entity";
+import { Product } from "@/_app/_back/product/domain/product.entity";
 
 export interface IProductRepository {
   create(product: Product): Promise<string>; // Crear un producto

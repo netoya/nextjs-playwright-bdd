@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { CreateProductUseCase } from "@/_back/product/usecase/createProduct/createProduct.usecase";
+import { CreateProductUseCase } from "@/_app/_back/product/usecase/createProduct/createProduct.usecase";
 import { container } from "tsyringe";
 
 export async function createProductPresentation(

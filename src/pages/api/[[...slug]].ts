@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getPresentation } from "@/utils/getPresentation";
-import { routes } from "@/_back/routes";
-import { container } from "@/_back/shared/infra/di/dependencies";
+import { routes } from "@/_app/_back/routes";
+import { container } from "@/_app/_back/shared/infra/di/dependencies";
 
 export default async function handler(
   req: NextApiRequest,

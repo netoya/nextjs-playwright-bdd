@@ -1,6 +1,6 @@
 "use server";
 import { container } from "tsyringe";
-import { GetAllProductsUseCase } from "@/_back/product/usecase/getAllProducts/getAllProducts.usecase";
+import { GetAllProductsUseCase } from "@/_app/_back/product/usecase/getAllProducts/getAllProducts.usecase";
 
 import { NextApiRequest, NextApiResponse } from "next";
 

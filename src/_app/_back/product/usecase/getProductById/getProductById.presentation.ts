@@ -2,7 +2,7 @@
 import { container } from "tsyringe";
 
 import { NextApiRequest, NextApiResponse } from "next";
-import { GetProductByIdUseCase } from "@/_back/product/usecase/getProductById/getProductById.usecase";
+import { GetProductByIdUseCase } from "@/_app/_back/product/usecase/getProductById/getProductById.usecase";
 
 export async function getProductByIdPresentation(
   req: NextApiRequest,
