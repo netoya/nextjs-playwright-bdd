@@ -1,4 +1,12 @@
 {
     "typescript.preferences.importModuleSpecifier": "non-relative",
-    "javascript.preferences.importModuleSpecifier": "non-relative"
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+     "github.copilot.chat.reviewSelection.instructions": [
+      {
+        "file":".github/copilot-instructions.md",
+      },
+      {
+        "file":".project-structure.md"
+      }
+    ]
 }
