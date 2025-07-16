@@ -1,5 +1,5 @@
 // Esquema Mongoose para Agency
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { AgencyDocument } from "./agency.document";
 
 const AgencySchema = new Schema<AgencyDocument>({
@@ -8,4 +8,5 @@ const AgencySchema = new Schema<AgencyDocument>({
   phone: { type: String },
 });
 
-export const AgencyModel = model<AgencyDocument>("Agency", AgencySchema);
+export const AgencyModel =
+  models["Agency"] || model<AgencyDocument>("Agency", AgencySchema);

@@ -1,5 +1,6 @@
 "use server";
 import { container } from "tsyringe";
+import "@/_agency/_back/shared/infra/di/dependencies";
 import { GetAllAgenciesUseCase } from "./getAllAgencies.usecase";
 import { NextApiRequest, NextApiResponse } from "next";
 
