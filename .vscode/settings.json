@@ -1,12 +1,42 @@
 {
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "javascript.preferences.importModuleSpecifier": "non-relative",
-     "github.copilot.chat.reviewSelection.instructions": [
+    "github.copilot.chat.codeGeneration.instructions": [
       {
-        "file":".github/copilot-instructions.md",
+        "file": ".github/copilot-instructions.md"
       },
       {
-        "file":".project-structure.md"
+        "file": ".github/copilot-topics/copilot-actions.md"
+      },
+      {
+        "file": ".github/copilot-topics/pasos_pre_accion.md"
+      },
+      {
+        "file": ".github/copilot-topics/pasos_post_accion.md"
+      },
+      {
+        "file": ".project-structure.md"
+      },
+      {
+        "file": ".github/copilot-topics/actions/crear_modulo.md"
+      },
+      {
+        "file": ".github/copilot-topics/actions/crear_ui.md"
+      },
+      {
+        "file": ".github/copilot-topics/actions/crear_domain.md"
+      },
+      {
+        "file": ".github/copilot-topics/actions/crear_rutas.md"
+      },
+      {
+        "file": ".github/copilot-topics/actions/crear_usecase.md"
+      },
+      {
+        "file": ".github/copilot-topics/actions/crear_infra.md"
+      },
+      {
+        "file": ".github/copilot-topics/actions/crear_presentacion.md"
       }
     ]
 }

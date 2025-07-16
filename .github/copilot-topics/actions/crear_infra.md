@@ -11,6 +11,7 @@ Este documento describe los pasos realizados para crear la infraestructura de la
    - Archivo: `agency.schema.ts`
    - Contenido: Definición del esquema y modelo Mongoose para la entidad `Agency`.
    - El tipado principal se centraliza en `agency.document.ts` y se importa en el esquema, mapper y repositorio.
+   - **Recomendación importante:** Usa siempre el patrón `models["Model"] || model<...>("Model", schema)` para evitar errores de recompilación en desarrollo con Next.js.
 
 3. **Implementar el repositorio:**
    - Archivo: `agency.repository.ts`
@@ -67,7 +68,7 @@ Utiliza esta lista como referencia rápida para futuras acciones en la carpeta `
 
 ## Ejemplo: product.schema.ts
 ```typescript
-import mongoose, { Schema } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { ProductDocument } from "./product.document";
 
 const ProductSchema = new Schema<ProductDocument>({
@@ -76,7 +77,7 @@ const ProductSchema = new Schema<ProductDocument>({
   description: { type: String },
 });
 
-export const ProductModel = mongoose.model<ProductDocument>("Product", ProductSchema);
+export const ProductModel = models["Product"] || model<ProductDocument>("Product", ProductSchema);
 ```
 
 ## Ejemplo: product.mapper.ts
