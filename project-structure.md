@@ -26,11 +26,13 @@ Este archivo documenta la arquitectura, convenciones y flujos clave del proyecto
   - `shared/` para utilidades comunes
 
 
+
 ### Entidades
 - Cada entidad es lowerCamelCase: `provider`, `userAddress`, `account`.
 - Subcarpetas por entidad:
   - `domain/` (interfaces, entidades)
   - `infra/` (implementaciones, Mongoose, servicios externos)
+    - **Mongoose:** Al definir un modelo, usa siempre el patrón `models["Model"] || model<...>("Model", schema)` para evitar errores de recompilación en desarrollo.
   - `feature/` (funcionalidad específica)
   - `usecase/` (casos de uso)
 
@@ -48,14 +50,35 @@ Este archivo documenta la arquitectura, convenciones y flujos clave del proyecto
 - **feature/**: Funcionalidad específica de la entidad.
 - **usecase/**: Casos de uso y lógica de negocio principal.
 
+
 ### Front-end
 - Agrupado por atomic, molecule, organism, template.
 - Ejemplo: `/src/_product/_front/product/atomic/`, `/src/_product/_front/product/page/`
+- **Llamadas a API:** Todas las llamadas HTTP/fetch deben centralizarse en funciones dentro de la carpeta `apis/` del módulo correspondiente (por ejemplo, `/src/_product/_front/product/apis/getAllProducts.api.ts`). Los componentes de UI deben importar y usar estos helpers, nunca hacer fetch directo.
 
 ### Shared
 - Utilidades y dependencias comunes en `/shared/`.
 
-## Workflows y comandos clave
+
+## Flujo típico de front a back
+
+Este es el flujo recomendado para una feature típica desde el front-end hasta el back-end:
+
+### Frontend
+
+- `src/pages/.../some.tsx` (entrada de página Next.js)
+- `src/_module/_front/entity/page/somePage.tsx` (página específica del módulo)
+- `src/_module/_front/entity/apis/postListEntity.ts` (servicio o llamada a API del módulo)
+
+### Backend
+
+- `src/pages/api/[[..slug]].ts` (handler API global Next.js)
+- `src/_app/_back/routes.ts` (router global que importa rutas de módulos)
+- `src/_module/_back/entity/routes.ts` (rutas del módulo)
+- `src/_module/_back/entity/usecase/listEntity/listEntity.presentation.ts` (presentación del caso de uso)
+- `src/_module/_back/entity/usecase/listEntity/listEntity.usecase.ts` (lógica del caso de uso)
+
+Este flujo asegura trazabilidad y separación clara de responsabilidades entre UI, servicios, rutas y lógica de negocio.
 
 - **Desarrollo:** `npm run dev` (o `yarn dev`, `pnpm dev`, `bun dev`)
 - **Testing/BDD:** Playwright y Playwright-BDD, estructura modular para tests/features
