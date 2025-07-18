@@ -1,40 +1,28 @@
-// Implementación Mongoose del repositorio Agency
-import { IAgencyRepository } from "../domain/agency.repository.interface";
 import { singleton } from "tsyringe";
-import { Agency } from "../domain/agency.entity";
 import { AgencyModel } from "./agency.schema";
 import { AgencyMapper } from "./agency.mapper";
-// ...existing code...
+import type { IAgencyRepository } from "../domain/agency.repository.interface";
+import { Agency } from "../domain/agency.entity";
 
 @singleton()
-export class AgencyRepositoryMongo implements IAgencyRepository {
+export class AgencyRepositoryImpl implements IAgencyRepository {
   async findById(id: string): Promise<Agency | null> {
-    const doc = await AgencyModel.findById(id).lean().exec();
+    const doc = await AgencyModel.findById(id);
     return doc ? AgencyMapper.toDomain(doc) : null;
   }
-
   async findAll(): Promise<Agency[]> {
-    const docs = await AgencyModel.find().lean().exec();
+    const docs = await AgencyModel.find();
     return docs.map(AgencyMapper.toDomain);
   }
-
-  async create(agency: Omit<Agency, "id">): Promise<Agency> {
-    const created = await AgencyModel.create(agency);
-    return AgencyMapper.toDomain(created.toObject());
+  async create(agency: Agency): Promise<Agency> {
+    const doc = await AgencyModel.create(AgencyMapper.toPersistence(agency));
+    return AgencyMapper.toDomain(doc);
   }
-
-  async update(id: string, agency: Partial<Agency>): Promise<Agency | null> {
-    const updated = await AgencyModel.findByIdAndUpdate(id, agency, {
-      new: true,
-    })
-      .lean()
-      .exec();
-    return updated ? AgencyMapper.toDomain(updated) : null;
+  async update(agency: Agency): Promise<Agency | null> {
+    const doc = await AgencyModel.findByIdAndUpdate(agency.id, AgencyMapper.toPersistence(agency), { new: true });
+    return doc ? AgencyMapper.toDomain(doc) : null;
   }
-  // ...existing code...
-
-  async delete(id: string): Promise<boolean> {
-    const result = await AgencyModel.deleteOne({ _id: id });
-    return result.deletedCount === 1;
+  async delete(id: string): Promise<void> {
+    await AgencyModel.findByIdAndDelete(id);
   }
 }

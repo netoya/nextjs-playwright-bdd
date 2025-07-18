@@ -1,23 +1,31 @@
-// Mapper para transformar documentos de MongoDB a entidad Agency
+import type { AgencyDocument } from "./agency.document";
 import { Agency } from "../domain/agency.entity";
-import { AgencyDocument } from "./agency.document";
 
 export class AgencyMapper {
   static toDomain(doc: AgencyDocument): Agency {
-    return {
-      id: typeof doc._id === "string" ? doc._id : doc._id.toString(),
-      name: doc.name,
-      address: doc.address,
-      phone: doc.phone,
-    };
+    return new Agency(
+      doc._id,
+      doc.name,
+      doc.description,
+      doc.address,
+      doc.phone,
+      doc.email,
+      doc.website,
+      doc.createdAt,
+      doc.updatedAt
+    );
   }
-
   static toPersistence(entity: Agency): AgencyDocument {
     return {
       _id: entity.id,
       name: entity.name,
+      description: entity.description,
       address: entity.address,
       phone: entity.phone,
-    } as AgencyDocument;
+      email: entity.email,
+      website: entity.website,
+      createdAt: entity.createdAt,
+      updatedAt: entity.updatedAt,
+    };
   }
 }

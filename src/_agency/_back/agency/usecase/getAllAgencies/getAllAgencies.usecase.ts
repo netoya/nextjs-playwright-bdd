@@ -5,8 +5,7 @@ import type { Agency } from "@/_agency/_back/agency/domain/agency.entity";
 @injectable()
 export class GetAllAgenciesUseCase {
   constructor(
-    @inject("IAgencyRepository")
-    private readonly agencyRepository: IAgencyRepository
+    @inject("IAgencyRepository") private readonly agencyRepository: IAgencyRepository
   ) {}
 
   async execute(): Promise<Agency[]> {

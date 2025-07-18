@@ -1,27 +1,16 @@
 // Servicio de dominio para Agency
-import { IAgencyRepository } from "./agency.repository.interface";
-import { Agency } from "./agency.entity";
+import type { Agency } from "./agency.entity";
+import type { IAgencyRepository } from "./agency.repository.interface";
 
 export class AgencyService {
-  constructor(private readonly repository: IAgencyRepository) {}
+  constructor(private repository: IAgencyRepository) {}
 
   async getAgency(id: string) {
     return this.repository.findById(id);
   }
 
-  async listAgencies() {
-    return this.repository.findAll();
-  }
-
-  async createAgency(data: Agency) {
-    return this.repository.create(data);
-  }
-
-  async updateAgency(id: string, data: Partial<Agency>) {
-    return this.repository.update(id, data);
-  }
-
-  async deleteAgency(id: string) {
-    return this.repository.delete(id);
+  async createAgency(agency: Agency) {
+    // Validaciones y lógica de negocio
+    return this.repository.create(agency);
   }
 }

@@ -1,18 +1,13 @@
-"use server";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { container } from "tsyringe";
-import "@/_agency/_back/shared/infra/di/dependencies";
 import { GetAllAgenciesUseCase } from "./getAllAgencies.usecase";
-import { NextApiRequest, NextApiResponse } from "next";
 
-export async function listAgenciesPresentation(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function listAgenciesPresentation(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const usecase = container.resolve(GetAllAgenciesUseCase);
-    const agencies = await usecase.execute();
+    const useCase = container.resolve(GetAllAgenciesUseCase);
+    const agencies = await useCase.execute();
     res.status(200).json(agencies);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ error: "Error al obtener agencias", details: error });
   }
 }

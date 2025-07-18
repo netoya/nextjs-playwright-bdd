@@ -1,9 +1,12 @@
-// Tipos unificados para Agency (Mongoose)
-import { Document } from "mongoose";
-
-export interface AgencyDocument extends Document {
-  _id: string | { toString(): string };
+// Tipado principal para Agency (Mongoose)
+export interface AgencyDocument {
+  _id: string;
   name: string;
-  address?: string;
-  phone?: string;
+  description: string;
+  address: string;
+  phone: string;
+  email: string;
+  website: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

@@ -4,8 +4,7 @@ import type { IAgencyRepository } from "@/_agency/_back/agency/domain/agency.rep
 @injectable()
 export class DeleteAgencyUseCase {
   constructor(
-    @inject("IAgencyRepository")
-    private readonly agencyRepository: IAgencyRepository
+    @inject("IAgencyRepository") private readonly agencyRepository: IAgencyRepository
   ) {}
 
   async execute(id: string): Promise<void> {
