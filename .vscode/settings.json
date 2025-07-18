@@ -17,26 +17,6 @@
       {
         "file": ".project-structure.md"
       },
-      {
-        "file": ".github/copilot-topics/actions/crear_modulo.md"
-      },
-      {
-        "file": ".github/copilot-topics/actions/crear_ui.md"
-      },
-      {
-        "file": ".github/copilot-topics/actions/crear_domain.md"
-      },
-      {
-        "file": ".github/copilot-topics/actions/crear_rutas.md"
-      },
-      {
-        "file": ".github/copilot-topics/actions/crear_usecase.md"
-      },
-      {
-        "file": ".github/copilot-topics/actions/crear_infra.md"
-      },
-      {
-        "file": ".github/copilot-topics/actions/crear_presentacion.md"
-      }
+
     ]
 }
