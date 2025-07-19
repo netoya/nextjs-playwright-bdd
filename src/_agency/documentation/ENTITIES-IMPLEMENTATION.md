@@ -1,65 +1,60 @@
 | concluido | modulo | entidad          | accion implementada |
 | --------- | ------ | ---------------- | ------------------- |
-| [x]       | agency | agency           | crear_domain        |
-| [x]       | agency | agency           | crear_infra         |
-| [x]       | agency | agency           | registrar_di        |
-| [x]       | agency | agency           | crear_usecase       |
-| [x]       | agency | agency           | crear_presentacion  |
-| [x]       | agency | agency           | crear_rutas         |
-| [x]       | agency | influencer       | crear_domain        |
-| [x]       | agency | influencer       | crear_infra         |
-| [x]       | agency | influencer       | registrar_di        |
-| [x]       | agency | influencer       | crear_usecase       |
-| [x]       | agency | influencer       | crear_presentacion  |
-| [x]       | agency | influencer       | crear_rutas         |
-| [x]       | agency | campaign         | crear_domain        |
-| [x]       | agency | campaign         | crear_infra         |
-| [x]       | agency | campaign         | registrar_di        |
-| [x]       | agency | campaign         | crear_usecase       |
-| [x]       | agency | campaign         | crear_presentacion  |
-| [x]       | agency | campaign         | crear_rutas         |
-| [x]       | agency | task             | crear_domain        |
-| [x]       | agency | task             | crear_infra         |
-| [x]       | agency | task             | registrar_di        |
-| [x]       | agency | task             | crear_usecase       |
-| [x]       | agency | task             | crear_presentacion  |
-| [x]       | agency | task             | crear_rutas         |
-| [x]       | agency | goal             | crear_domain        |
-| [x]       | agency | goal             | crear_infra         |
-| [x]       | agency | goal             | registrar_di        |
-| [x]       | agency | goal             | crear_usecase       |
-| [x]       | agency | goal             | crear_presentacion  |
-| [x]       | agency | goal             | crear_rutas         |
-| [x]       | agency | brand            | crear_domain        |
-| [x]       | agency | brand            | crear_infra         |
-| [x]       | agency | brand            | registrar_di        |
-| [x]       | agency | brand            | crear_usecase       |
-| [x]       | agency | brand            | crear_presentacion  |
-| [x]       | agency | brand            | crear_rutas         |
-| [x]       | agency | contract         | crear_domain        |
-| [x]       | agency | contract         | crear_infra         |
-| [x]       | agency | contract         | registrar_di        |
-| [x]       | agency | contract         | crear_usecase       |
-| [x]       | agency | contract         | crear_presentacion  |
-| [x]       | agency | contract         | crear_rutas         |
-| [x]       | agency | campaignTracking | crear_domain        |
-| [x]       | agency | campaignTracking | crear_infra         |
-| [x]       | agency | campaignTracking | registrar_di        |
-| [x]       | agency | campaignTracking | crear_usecase       |
-| [x]       | agency | campaignTracking | crear_presentacion  |
-| [x]       | agency | campaignTracking | crear_rutas         |
-| [ ]       | agency | campaignTracking | integrar_rutas      |
-| [x]       | agency | expense          | crear_domain        |
-| [x]       | agency | expense          | crear_infra         |
-| [x]       | agency | expense          | registrar_di        |
-| [x]       | agency | expense          | crear_usecase       |
-| [x]       | agency | expense          | crear_presentacion  |
-| [x]       | agency | expense          | crear_rutas         |
-| [ ]       | agency | expense          | integrar_rutas      |
-| [x]       | agency | income           | crear_domain        |
-| [x]       | agency | income           | crear_infra         |
-| [x]       | agency | income           | registrar_di        |
-| [x]       | agency | income           | crear_usecase       |
-| [x]       | agency | income           | crear_presentacion  |
-| [x]       | agency | income           | crear_rutas         |
-| [ ]       | agency | income           | integrar_rutas      |
+| [✓]       | agency | agency           | crear_domain        |
+| [ ]       | agency | agency           | crear_infra         |
+| [ ]       | agency | agency           | registrar_di        |
+| [ ]       | agency | agency           | crear_usecase       |
+| [ ]       | agency | agency           | crear_presentacion  |
+| [ ]       | agency | agency           | crear_rutas         |
+| [ ]       | agency | influencer       | crear_domain        |
+| [ ]       | agency | influencer       | crear_infra         |
+| [ ]       | agency | influencer       | registrar_di        |
+| [ ]       | agency | influencer       | crear_usecase       |
+| [ ]       | agency | influencer       | crear_presentacion  |
+| [ ]       | agency | influencer       | crear_rutas         |
+| [ ]       | agency | campaign         | crear_domain        |
+| [ ]       | agency | campaign         | crear_infra         |
+| [ ]       | agency | campaign         | registrar_di        |
+| [ ]       | agency | campaign         | crear_usecase       |
+| [ ]       | agency | campaign         | crear_presentacion  |
+| [ ]       | agency | campaign         | crear_rutas         |
+| [ ]       | agency | task             | crear_domain        |
+| [ ]       | agency | task             | crear_infra         |
+| [ ]       | agency | task             | registrar_di        |
+| [ ]       | agency | task             | crear_usecase       |
+| [ ]       | agency | task             | crear_presentacion  |
+| [ ]       | agency | task             | crear_rutas         |
+| [ ]       | agency | goal             | crear_domain        |
+| [ ]       | agency | goal             | crear_infra         |
+| [ ]       | agency | goal             | registrar_di        |
+| [ ]       | agency | goal             | crear_usecase       |
+| [ ]       | agency | goal             | crear_presentacion  |
+| [ ]       | agency | goal             | crear_rutas         |
+| [ ]       | agency | brand            | crear_domain        |
+| [ ]       | agency | brand            | crear_infra         |
+| [ ]       | agency | brand            | registrar_di        |
+| [ ]       | agency | brand            | crear_usecase       |
+| [ ]       | agency | brand            | crear_presentacion  |
+| [ ]       | agency | brand            | crear_rutas         |
+| [ ]       | agency | contract         | crear_domain        |
+| [ ]       | agency | contract         | crear_infra         |
+| [ ]       | agency | contract         | registrar_di        |
+| [ ]       | agency | contract         | crear_usecase       |
+| [ ]       | agency | contract         | crear_presentacion  |
+| [ ]       | agency | contract         | crear_rutas         |
+| [ ]       | agency | campaignTracking | crear_domain        |
+| [ ]       | agency | campaignTracking | crear_infra         |
+| [ ]       | agency | campaignTracking | registrar_di        |
+| [ ]       | agency | campaignTracking | crear_usecase       |
+| [ ]       | agency | campaignTracking | crear_presentacion  |
+| [ ]       | agency | campaignTracking | crear_rutas         |
+| [ ]       | agency | campaignTracking | crear_rutas         |
+| [ ]       | agency | expense          | crear_domain        |
+| [ ]       | agency | expense          | crear_infra         |
+| [ ]       | agency | expense          | registrar_di        |
+| [ ]       | agency | expense          | crear_usecase       |
+| [ ]       | agency | expense          | crear_presentacion  |
+| [ ]       | agency | expense          | crear_rutas         |
+| [ ]       | agency | expense          | crear_rutas         |
+| [ ]       | agency | income           | crear_domain        |
+| [ ]       | agency | income           | crear_infra         |
