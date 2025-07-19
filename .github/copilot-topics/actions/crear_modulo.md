@@ -16,11 +16,38 @@
 
 - [ ] Crear carpeta `/src/_{modulo}/`.
 - [ ] Crear subcarpetas `_back/` y `_front/`.
-- [ ] En `_back/`, crear carpetas por entidad (`domain/`, `infra/`, `feature/`, `usecase/`).
+- [ ] En `_back/`, crear carpetas por entidad (`domain/`, `infra/`, `feature/`, `usecase/`) y el archivo `routes.ts` para gestión de rutas del módulo.
 - [ ] En `_front/`, crear carpetas por tipo de componente (`atomic/`, `molecule/`, `organism/`, `template/`).
 - [ ] Validar la estructura con `.project-structure.md`.
 - [ ] Registrar dependencias en `di/dependencies.ts` si aplica.
 - [ ] Documentar la estructura y decisiones relevantes.
+
+
+
+> **Nota:** El archivo `routes.ts` centraliza y organiza las rutas HTTP del módulo, permitiendo una gestión modular y escalable de los endpoints de la API.
+
+## Estructura tipo árbol (tree)
+
+```text
+src/
+  _{modulo}/
+    _back/
+      {entity}/
+        domain/
+        infra/
+        feature/
+        usecase/
+        routes.ts
+      shared/
+        infra/
+          di/
+    _front/
+      {entity}/
+        atomic/
+        molecule/
+        organism/
+        template/
+```
 
 ## 4. Ejemplo concreto
 
@@ -33,6 +60,7 @@ src/
         infra/
         feature/
         usecase/
+        routes.ts
       shared/
         infra/
           di/

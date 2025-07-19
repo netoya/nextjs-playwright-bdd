@@ -41,6 +41,7 @@ Ejemplo para la entidad `agency`:
 ## 4. Ejemplo básico
 
 ```typescript
+
 import { injectable, inject } from "tsyringe";
 import type { IAgencyRepository } from "@/_agency/_back/agency/domain/agency.repository.interface";
 import type { Agency } from "@/_agency/_back/agency/domain/agency.entity";
@@ -48,7 +49,7 @@ import type { Agency } from "@/_agency/_back/agency/domain/agency.entity";
 @injectable()
 export class GetAgencyByIdUseCase {
   constructor(
-    @inject("IAgencyRepository") private readonly agencyRepository: IAgencyRepository
+    @inject("AgencyRepository") private readonly agencyRepository: IAgencyRepository
   ) {}
 
   async execute(id: string): Promise<Agency | null> {
