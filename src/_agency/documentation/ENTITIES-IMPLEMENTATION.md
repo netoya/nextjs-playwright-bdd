@@ -1,6 +1,6 @@
 | concluido | modulo | entidad          | accion implementada |
 | --------- | ------ | ---------------- | ------------------- |
-| [✓]       | agency | agency           | crear_domain        |
+| [ ]       | agency | agency           | crear_domain        |
 | [ ]       | agency | agency           | crear_infra         |
 | [ ]       | agency | agency           | registrar_di        |
 | [ ]       | agency | agency           | crear_usecase       |
