@@ -68,7 +68,7 @@ Utiliza esta lista como referencia rápida para futuras acciones en la carpeta `
 
 ## Ejemplo: product.schema.ts
 ```typescript
-import { Schema, model, models } from "mongoose";
+import { Schema, models, model } from "mongoose";
 import { ProductDocument } from "./product.document";
 
 const ProductSchema = new Schema<ProductDocument>({
@@ -122,7 +122,7 @@ export class ProductRepositoryImpl implements ProductRepository {
     const doc = await ProductModel.create(ProductMapper.toPersistence(product));
     return ProductMapper.toDomain(doc);
   }
-  async update(product: Product): Promise<Product> {
+  async update(product: Product): Promise<Product | null> {
     const doc = await ProductModel.findByIdAndUpdate(product.id, ProductMapper.toPersistence(product), { new: true });
     return doc ? ProductMapper.toDomain(doc) : null;
   }
@@ -135,8 +135,8 @@ export class ProductRepositoryImpl implements ProductRepository {
 ## Ejemplo: Registro en di/dependencies.ts
 ```typescript
 import { container } from "tsyringe";
-import { ProductRepository } from "../domain/product.repository.interface";
-import { ProductRepositoryImpl } from "../infra/product.repository";
+import { ProductRepository } from "../../../product/domain/product.repository.interface";
+import { ProductRepositoryImpl } from "../../../product/infra/product.repository";
 
 container.registerSingleton<ProductRepository>("ProductRepository", ProductRepositoryImpl);
 ```

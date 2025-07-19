@@ -44,7 +44,7 @@ export interface ProductRepository {
   findById(id: string): Promise<Product | null>;
   findAll(): Promise<Product[]>;
   create(product: Product): Promise<Product>;
-  update(product: Product): Promise<Product>;
+  update(product: Product): Promise<Product | null>;
   delete(id: string): Promise<void>;
 }
 ```
@@ -57,13 +57,17 @@ import { ProductRepository } from "./product.repository.interface";
 export class ProductService {
   constructor(private repository: ProductRepository) {}
 
-  async getProduct(id: string) {
+  async getProduct(id: string): Promise<Product | null> {
     return this.repository.findById(id);
   }
 
-  async createProduct(product: Product) {
+  async createProduct(product: Product): Promise<Product> {
     // Validaciones y lógica de negocio
     return this.repository.create(product);
+  }
+
+  async updateProduct(product: Product): Promise<Product | null> {
+    return this.repository.update(product);
   }
 }
 ```

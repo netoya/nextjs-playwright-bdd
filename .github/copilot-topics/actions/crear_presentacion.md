@@ -26,8 +26,12 @@ export async function nombrePresentacion(
     // Ejecutar el caso de uso con los datos del request
     const resultado = await usecase.execute(/* argumentos */);
     res.status(200).json(resultado);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      res.status(500).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: String(error) });
+    }
   }
 }
 ```
@@ -58,8 +62,12 @@ export async function createAgencyPresentation(
     const usecase = container.resolve(CreateAgencyUseCase);
     const agency = await usecase.execute(req.body);
     res.status(201).json(agency);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      res.status(500).json({ message: error.message });
+    } else {
+      res.status(500).json({ message: String(error) });
+    }
   }
 }
 ```
@@ -69,6 +77,7 @@ export async function createAgencyPresentation(
 - Mantén la lógica de presentación simple y delega toda la lógica de negocio al caso de uso.
 - Usa nombres claros y consistentes para las funciones de presentación.
 - Si el caso de uso puede fallar (por ejemplo, entidad no encontrada), devuelve el status HTTP adecuado (`404`, `400`, etc).
+- Para el manejo de errores, utiliza `catch (error: unknown)` y accede a las propiedades solo tras verificar el tipo (`instanceof Error`).
 - Documenta cualquier decisión relevante o validación especial.
 
 ---

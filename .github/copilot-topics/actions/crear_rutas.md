@@ -3,12 +3,11 @@
 ## 1. Estructura recomendada
 
 - Cada módulo debe tener su propio archivo de rutas principal:
-  - Producto: `/src/_app/_back/product/routes.ts`
-  - Agencia: `/src/_agency/_back/agency/routes.ts`
+  - Producto: `/src/_app/_back/backend.routes.ts`
+  - Agencia: `/src/_agency/_back/backend.routes.ts`
 - Cada entidad puede tener su propio archivo de rutas si aplica:
   - Ejemplo: `/src/_agency/_back/agency/entity.routes.ts`
-- El módulo puede tener rutas globales en `/src/_agency/_back/backend.routes.ts` si es necesario.
-- El archivo principal `/src/_app/_back/routes.ts` importa y combina los objetos de rutas de cada módulo.
+- El archivo principal `/src/app.routes.ts` importa y combina los objetos de rutas de cada módulo.
 
 ## 2. Ejemplo de archivo de rutas por módulo
 
@@ -33,7 +32,7 @@ import { getAgencyByIdPresentation } from "@/_agency/_back/agency/usecase/getAge
 import { updateAgencyPresentation } from "@/_agency/_back/agency/usecase/updateAgency/updateAgency.presentation";
 import { deleteAgencyPresentation } from "@/_agency/_back/agency/usecase/deleteAgency/deleteAgency.presentation";
 
-export const agencyRoutes = {
+export const agencyEntityRoutes = {
   "GET/api/agency/": listAgenciesPresentation,
   "POST/api/agency/create/": createAgencyPresentation,
   "GET/api/agency/:id/": getAgencyByIdPresentation,
@@ -66,15 +65,13 @@ export const agencyBackendRoutes = {
 ## 3. Archivo principal de rutas
 
 ```typescript
+// src/app.routes.ts
 import { productRoutes } from "@/_app/_back/product/routes";
 import { agencyRoutes } from "@/_agency/_back/agency/routes";
 import { agencyEntityRoutes } from "@/_agency/_back/agency/entity.routes";
 import { agencyBackendRoutes } from "@/_agency/_back/backend.routes";
 
-export const routes = {
-  ...productRoutes,
-  ...agencyRoutes,
-  ...agencyEntityRoutes,
+export const appRoutes = {
   ...agencyBackendRoutes,
 };
 ```
@@ -82,10 +79,9 @@ export const routes = {
 ## 4. Checklist de pasos
 
 ### Checklist de pasos
-- [ ] Crear archivo de rutas por módulo en la carpeta correspondiente (`routes.ts`).
 - [ ] Crear archivo de rutas por entidad si aplica (`entity.routes.ts`).
 - [ ] Crear archivo de rutas globales del backend si aplica (`backend.routes.ts`).
-- [ ] Exportar un objeto con las rutas y handlers del módulo o entidad, usando la convención `{entity}Routes` o `{module}Routes`.
+- [ ] Exportar un objeto con las rutas y handlers del módulo o entidad, usando la convención `{entity}EntityRoutes` o `{module}BackendRoutes`.
 - [ ] Importar los objetos de rutas en el archivo principal y combinarlos.
 - [ ] Validar que no haya duplicidad de rutas entre módulos, entidades y backend.
 - [ ] Mantener la nomenclatura y estructura consistente.
@@ -98,9 +94,8 @@ export const routes = {
 
 ## 6. Recomendaciones de nomenclatura
  - Para rutas por entidad, usa `{entity}EntityRoutes` (ejemplo: `agencyEntityRoutes`).
- - Para rutas por módulo, usa `{module}Routes` (ejemplo: `productRoutes`).
- - Para rutas globales del backend, puedes usar `{module}BackendRoutes` o `{module}Routes` si aplica.
- - Los archivos deben seguir la convención: `routes.ts`, `entity.routes.ts`, `backend.routes.ts`.
+  - Para rutas globales del backend, puedes usar `{module}BackendRoutes`.
+ - Los archivos deben seguir la convención:  `entity.routes.ts`, `backend.routes.ts`.
  - Mantén los imports relativos y consistentes según la estructura del proyecto.
 
 ---

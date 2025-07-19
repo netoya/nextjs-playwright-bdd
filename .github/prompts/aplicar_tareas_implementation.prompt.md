@@ -51,7 +51,7 @@ Mostrar la siguiente implementacion dentro del modulo.
 1. **Actualizar la documentación de implementación**
 
    - Actualiza el archivo `ENTITIES-IMPLEMENTATION.md` dentro de la carpeta del módulo.
-   - Marca la implementación como completada. `concluido: [✓]`.
+   - Marca la implementación como completada. `concluido: [x]`.
    - Asegúrate de que el formato sea correcto y que la fila esté alineada con las demás.
 
 1. **Siguiente implementación**
