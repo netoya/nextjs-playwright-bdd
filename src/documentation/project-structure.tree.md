@@ -1,0 +1,18 @@
+- src
+--_{moduleName} // raiz de un modulo
+--- _back
+---- {entityName}
+----- domain
+------ {entityName}.repository.interface.ts // interface del repositorio
+------ {entityName}.entity.ts // entidad de dominio
+----- infra
+------ {entityName}.repository.ts // implemacion de repositorio
+------ {entityName}.document.ts // document de mongo
+------ {entityName}.schema.ts // schema y model de mongo
+------ {entityName}.mapper.ts // para pasar de mongo a dominio y viceversa
+----- usecase
+------ {useCaseName}
+------- {useCaseName}.usecase.ts // usecase
+------- {useCaseName}.presentation.ts // presentacion del usecase
+----- {entityName}.routes.ts // rutas de back
+--- {moduleName}.routes.ts // rutas de modulo
