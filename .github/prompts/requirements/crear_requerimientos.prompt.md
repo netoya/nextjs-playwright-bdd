@@ -66,10 +66,16 @@ Descripción:
   - {descripción de la acción o implementación}
   - aplicar: {plantilla para tipo 3. src/documentation/files/{tipo 3}.file.md}
 
-## Notas de extensión
+# Modo de implementación
+## Pre requisitos
 - La estructura de carpetas y archivos debe seguir la convención del proyecto que se encuentra en `src/documentation/project-structure.general.md`.
 - La nomenclatura de los archivos y carpetas debe seguir las pautas establecidas en `src/documentation/project-structure.nomenclature.md`.
-- La informacion de cada tipo de archivo debe seguir el formato de `src/documentation/files/{nombre-del-archivo}.file.md`.
+
+## Por cada tipo de archivo
+- Muestra el tipo de archivo y su ruta.
+- Explica brevemente su propósito.
+- lee `src/documentation/files/{nombre-del-archivo}.file.md` para obtener la plantilla inicial y patrones de uso.
+
 ```
 
 ## Patrones de uso
